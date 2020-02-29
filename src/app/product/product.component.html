@@ -1,3 +1,4 @@
+<app-header></app-header>
 <section class="product" *ngIf="product">
     <img [src]="product.picture" [alt]="product.name" class="product-img">
     <article class="product-detail">
@@ -54,7 +55,7 @@
         <button class="add">Agregar al carrito</button>
     </article>
 </section>
-<section class="sections">
+<section class="sections" *ngIf="products">
     <header class="sections-header">
         <h2 class="title">Te Recomendamos!</h2>
     </header>
@@ -62,3 +63,4 @@
         <app-product-mini *ngFor="let product of products" [product]="product"></app-product-mini>
     </div>
 </section>
+<app-footer></app-footer>

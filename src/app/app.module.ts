@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProductMiniComponent } from './product-mini/product-mini.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductComponent } from './product/product.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 // Services
 import { ProductService } from './services';
 // Pipes
@@ -22,7 +23,8 @@ import { MoneyFormatPipe } from './pipes/money-format';
     ProductMiniComponent,
     FooterComponent,
     ProductComponent,
-    MoneyFormatPipe
+    MoneyFormatPipe,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,84 @@
+@import 'variables';
+.checkout {
+    height: 100vh;
+    background: #f4f4f4;
+    &-container {
+        max-width: $wrapper;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        .pay {
+            width: 60%;
+            &-header {
+                display: flex;
+                align-items: center;
+                padding: 1rem 0;
+                .icon {
+                    fill: #6a6a6a;
+                    width: 30px;
+                    margin-right: 1rem;
+                }
+                .title {
+                    color: map-get($colors, text);
+                    font-size: 1.625rem;
+                }
+            }
+            &-form {
+                .title {
+                    margin-bottom: .725rem;
+                    font-weight: map-get($weight, bold);
+                    color: map-get($colors, purple);
+                }
+                .footer {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top: 1.5rem;
+                    &-pay {
+                        background: map-get($colors, purple);
+                        color: map-get($colors, white);
+                        padding: .75rem;
+                        display: block;
+                        width: 200px;
+                        border: none;
+                        outline: none;
+                        font-size: 1rem;
+                        font-weight: map-get($weight, semi-bold);
+                        cursor: pointer;
+                    }
+                }
+                .container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: .75rem;
+                    .fields {
+                        width: 330px;
+                        &-label {
+                            display: block;
+                            font-size: .875rem;
+                            color: map-get($colors, text);
+                            font-weight: map-get($weight, semi-bold);
+                            margin-bottom: .325rem;
+                        }
+                        &-input {
+                            width: 100%;
+                            padding: .875rem .5rem;
+                            font-size: .875rem;
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+        .detail {
+            width: 35%;
+            height: 100vh;
+            background: white;
+            padding: 1.5rem;
+            &-header {
+                font-size: 1.1rem;
+                color: map-get($colors, text);
+            }
+        }
+    }
+}
