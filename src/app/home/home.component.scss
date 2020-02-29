@@ -1,0 +1,224 @@
+@import 'variables';
+
+.helps {
+    max-width: $wrapper;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .625rem 0;
+    &-ripley {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .card {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+            &.card--chek {
+                margin-right: 1.5rem;
+            }
+            &-icon {
+                width: 33px;
+                margin-right: .325rem;
+                &.card-icon--chek {
+                    width: 28px;
+                }
+            }
+            &-name {
+                width: 40px;
+                font-size: .75rem;
+                font-weight: map-get($weight, semi-bold);
+                color: map-get($colors, text);
+            }
+        }
+        .clubs {
+            &-icon {
+                width: 80px;
+            }
+        }
+        .help {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+            &:last-child {
+                margin: 0;
+            }
+            &-icon {
+                width: 25px;
+                margin-right: .425rem;
+            }
+            .clip {
+                width: 11px;
+            }
+            &-name {
+                width: 60px;
+                font-size: .75rem;
+                font-weight: map-get($weight, semi-bold);
+                color: map-get($colors, text);
+            }
+        }
+    }
+}
+.promotion {
+    background-image: linear-gradient(110deg, #ffb81c 41%, #e6e6fa, #e6e6fa 0);
+    padding: .75rem;
+    &-cnt {
+        max-width: $wrapper;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        .title {
+            color: map-get($colors, text);
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            &-icon {
+                color: map-get($colors, white);
+                font-size: 1.5rem;
+                margin-left: .325rem;
+                font-weight: map-get($weight, bold);
+            }
+        }
+        .description {
+            font-weight: map-get($weight, semi-bold);
+            color: map-get($colors, text);
+            display: block;
+        }
+    }
+}
+.slider {
+    max-width: $wrapper;
+    margin: 0 auto 2rem auto;
+    &-link {
+        .img {
+            width: 100%;
+            display: block;
+        }
+    }
+}
+.sections {
+    max-width: $wrapper;
+    margin: 0 auto 2rem auto;
+    &-header {
+        margin-bottom: 2rem;
+        .title {
+            color: map-get($colors, text);
+            font-weight: map-get($weight, semi-bold);
+            text-align: center;
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                height: 6px;
+                background: #ffb81c;
+                top: 40px;
+                border-radius: 2rem;
+                left: 30rem;
+                right: 30rem;
+            }
+        }
+    }
+    &-offers {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: .875rem;
+        .picture {
+            display: block;
+            width: 100%;
+            max-width: 560px;
+        }
+    }
+    &-offers_three {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .picture {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+        }
+    }
+    &-catalog {
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .sections {
+        &-offers {
+            .picture {
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+        &-offers_three {
+            .picture {
+                max-width: 340px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    .helps {
+        display: none;
+    }
+    .promotion {
+        display: none;
+    }
+    .sections {
+        &-header {
+            .title {
+                &::after {
+                    left: 16rem;
+                    right: 16rem;
+                }
+            }
+        }
+        &-offers {
+            .picture {
+                width: 100%;
+                max-width: 380px;
+            }
+        }
+        &-offers_three {
+            .picture {
+                max-width: 250px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 414px) { 
+    .sections {
+        &-header {
+            .title {
+                &::after {
+                    left: 10rem;
+                    right: 10rem;
+                }
+            }
+        }
+        &-offers {
+            display: block;
+            .picture {
+                margin: 0 auto 1rem auto;
+                width: 100%;
+            }
+        }
+        &-offers_three {
+            display: block;
+            .picture {
+                margin: 0 auto 1rem auto;
+                width: 100%;
+            }
+        }
+        &-catalog {
+            padding: 1rem;
+        }
+    }
+}

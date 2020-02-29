@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,800&display=swap');
+// Fonts
+$font-mont: 'Montserrat', sans-serif;
+$weight: (
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semi-bold: 600,
+    bold: 700,
+    extra-bold: 800
+);
+// Template
+$wrapper: 1140px;
+// Colors
+$colors: (
+    grey: #313131,
+    black: #1a1a1a,
+    white: #ffffff,
+    purple: #70578b,
+    text: #595959,
+    red: #e75353
+);

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ripley-jcm": {
+    "installation-sam": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ripley-jcm",
+            "outputPath": "dist/installation-sam",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,8 +28,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -54,31 +59,50 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
                 }
               ]
-            }
+            },
+            "client": {
+                "fileReplacements": [
+                  {
+                    "replace": "src/environments/environment.ts",
+                    "with": "src/environments/environment.test.ts"
+                  }
+                ],
+                "sourceMap": false
+              },
+              "lab": {
+                "fileReplacements": [
+                  {
+                    "replace": "src/environments/environment.ts",
+                    "with": "src/environments/environment.lab.ts"
+                  }
+                ],
+                "sourceMap": true
+              }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ripley-jcm:build"
+            "browserTarget": "installation-sam:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ripley-jcm:build:production"
+              "browserTarget": "installation-sam:build:production"
+            },
+            "client": {
+              "browserTarget": "installation-sam:build:client"
+            },
+            "lab": {
+              "browserTarget": "installation-sam:build:lab"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ripley-jcm:build"
+            "browserTarget": "installation-sam:build"
           }
         },
         "test": {
@@ -93,7 +117,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "scripts": []
           }

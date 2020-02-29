@@ -1,0 +1,60 @@
+<!-- Corporate nav -->
+<div class="corporate">
+    <nav class="corporate-container">
+        <a href="#" class="link">Ripley.com</a>
+        <a href="#" class="link">Banco Ripley</a>
+        <a href="#" class="link">Ripley Puntos Go</a>
+        <a href="#" class="link">Seguros Ripley</a>
+        <a href="#" class="link">Clubes Ripley</a>
+        <a href="#" class="link">Check</a>
+        <a href="#" class="link">Postula Ripley</a>
+    </nav>
+</div>
+<!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <a href="#" class="home">
+            <figure class="logo">
+                <img src="assets/img/ripley-logo.png" class="logo-img">
+            </figure>
+        </a>
+        <button class="hamburger" (click)="toggleMenu()">
+            <div class="hamburger-menu" [class.hamburger-menu--open]="openMenu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </button>
+        <span class="description">Menú de Categorias</span>
+        <div class="search">
+            <span class="search-icon icon-search"></span>
+            <input type="text" class="search-input" placeholder="¿Qué estás buscando?">
+        </div>
+        <button class="login" [class.login--open]="openLogin" (click)="toggleLogin()">
+            Iniciar Sesión
+            <span class="login-icon icon-chevron-down"></span>
+        </button>
+        <div class="cart">
+            <button class="cart-btn icon-shopping-cart"></button>
+            <span class="cart-count">0</span>
+        </div>
+        <button class="response_menu icon-menu" (click)="openMenuResponsive()"></button>
+    </div>
+</header>
+
+<div class="responsive_nav" [class.responsive_nav--open]="openMenuRes">
+    <header class="responsive_nav-header">
+        <button class="close icon-x" (click)="openMenuResponsive()"></button>
+    </header>
+    <nav class="responsive_nav-navigation">
+        <a href="#" class="link">
+            <span class="link-icon icon-book"></span>
+            Catálogo
+        </a>
+        <a href="#" class="link">
+            <span class="link-icon icon-shopping-cart"></span>
+            Carro de compra
+        </a>
+    </nav>
+</div>

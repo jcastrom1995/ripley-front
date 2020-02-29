@@ -1,0 +1,15 @@
+<article class="product">
+    <img [src]="product.picture" [alt]="product.name" class="product-img">
+    <div class="product-description">
+        <h5 class="brand">{{ product.brand }}</h5>
+        <span class="name">{{ product.name }}</span>
+        <div class="prices">
+            <span class="prices-max prices-product">{{ product.maxPrice }}</span>
+            <span class="prices-medium prices-product">{{ product.mediumPrice }}</span>
+            <span class="prices-low prices-product">
+                {{ product.minPrice }}
+                <img class="card" src="assets/img/card.png" alt="Ripley card">
+            </span>
+        </div>
+    </div>
+</article>
