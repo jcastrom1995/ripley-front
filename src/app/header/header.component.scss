@@ -28,6 +28,7 @@
 .header {
     background: map-get($colors, black);
     &-container {
+        position: relative;
         max-width: $wrapper;
         margin: 0 auto;
         display: flex;
@@ -196,54 +197,166 @@
         .response_menu {
             display: none;
         }
+        .shop_cart {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            top: 0px;
+            right: 0;
+            background: map-get($colors, white);
+            transition: .5s ease-in;
+            visibility: hidden;
+            opacity: 0;
+            border-radius: .325rem;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            z-index: 3;
+            &.shop_cart--open {
+                top: 100%;
+                visibility: visible;
+                opacity: 1;
+            }
+            &-header {
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #ccc;
+                padding: 1rem .5rem;
+                background: map-get($colors, purple);
+                .icon {
+                    color: map-get($colors, white);
+                    font-size: 1.2rem;
+                    margin-right: .425rem;
+                }
+                .title {
+                    color: map-get($colors, white);
+                    font-size: .875rem;
+                    font-weight: map-get($weight, medium);
+                }
+            }
+            &-body {
+                height: 296px;
+                .products {
+                    padding: .325rem;
+                    &-item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .details {
+                            display: flex;
+                            align-items: center;
+                            &-count {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                .arrow {
+                                    cursor: pointer;
+                                    outline: none;
+                                    background: none;
+                                    font-size: 1.25rem;
+                                    border: none;
+                                    color: map-get($colors, text);
+                                }
+                                .count {
+                                    font-size: .75rem;
+                                }
+                            }
+                            &-img {
+                                display: block;
+                                width: 60px;
+                            }
+                            &-info {
+                                .name {
+                                    display: block;
+                                    font-size: .75rem;
+                                    color: map-get($colors, text);
+                                    font-weight: map-get($weight, medium);
+                                    overflow:hidden;
+                                    white-space:nowrap;
+                                    text-overflow: ellipsis;
+                                    width: 150px;
+                                }
+                                .label {
+                                    display: block;
+                                    font-size: .75rem;
+                                    color: #a9a9a9;
+                                }
+                                .price {
+                                    display: block;
+                                    font-size: .75rem;
+                                    font-weight: map-get($weight, semi-bold);
+                                    margin-bottom: .1rem;
+                                    &.price--offer {
+                                        color: map-get($colors, red);
+                                        display: flex;
+                                        align-items: center;
+                                        .card {
+                                            width: 15px;
+                                            display: block;
+                                            margin-left: .15rem;
+                                        }
+                                    }
+                                    &:last-child {
+                                        margin: 0;
+                                    }
+                                }
+                            }
+                        }
+                        .delete {
+                            font-size: 1.2rem;
+                            color: #c9c9c9;
+                            border: none;
+                            background: none; 
+                            cursor: pointer;
+                            transition: .3s ease-in;
+                            &:hover {
+                                color: map-get($colors, red);
+                            }                         
+                        }
+                    }
+                }
+                .empty {
+                    height: 100%;
+                    color: #c9c9c9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: .875rem;
+                }
+            }
+            &-footer {
+                height: 52px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .btn {
+                    width: 50%;
+                    height: 100%;
+                    outline: none;
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                    font-weight: map-get($weight, semi-bold);
+                    font-size: .75rem;
+                    &.btn--close {
+                        color: map-get($colors, purple);
+                    }
+                    &.btn--buy {
+                        background: map-get($colors, red);
+                        color: map-get($colors, white);
+                    }
+                }
+            }
+        }
     }
 }
 
 .responsive_nav {
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 80%;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
-    background: white;
-    transition: .7s ease-out;
-    transform: translate3d(100%,0,0);
-    z-index: 2;
-    overflow-y: auto;
-    background: map-get($colors, purple);
-    &-header {
-        display: flex;
-        justify-content: flex-end;
-        .close {
-            color: white;
-            padding: .75rem;
-            font-size: 1.5rem;
-        }
-    }
-    &-navigation {
-        .link {
-            color: map-get($colors, white);
-            text-decoration: none;
-            display: block;
-            border-bottom: 2px solid map-get($colors, white);
-            border-top: 2px solid map-get($colors, white);
-            padding: .75rem .5rem;
-            display: flex;
-            align-items: center;
-            &-icon {
-                font-size: 1.325rem;
-                margin-right: .425rem;
-            }
-            &:last-child {
-                border-top: none;
-            }
-        }
-    }
-    &.responsive_nav--open {
-        transform: translate3d(0,0,0);
-    }
+    display: none;
 }
+
 
 @media screen and (max-width: 1024px) {
     .responsive_nav {
@@ -262,6 +375,49 @@
 @media screen and (max-width: 768px) {
     .responsive_nav {
         display: block;
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 80%;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+        background: white;
+        transition: .7s ease-out;
+        transform: translate3d(100%,0,0);
+        z-index: 2;
+        overflow-y: auto;
+        background: map-get($colors, purple);
+        &-header {
+            display: flex;
+            justify-content: flex-end;
+            .close {
+                color: white;
+                padding: .75rem;
+                font-size: 1.5rem;
+            }
+        }
+        &-navigation {
+            .link {
+                color: map-get($colors, white);
+                text-decoration: none;
+                display: block;
+                border-bottom: 2px solid map-get($colors, white);
+                border-top: 2px solid map-get($colors, white);
+                padding: .75rem .5rem;
+                display: flex;
+                align-items: center;
+                &-icon {
+                    font-size: 1.325rem;
+                    margin-right: .425rem;
+                }
+                &:last-child {
+                    border-top: none;
+                }
+            }
+        }
+        &.responsive_nav--open {
+            transform: translate3d(0,0,0);
+        }
     }
     .corporate {
         display: none;

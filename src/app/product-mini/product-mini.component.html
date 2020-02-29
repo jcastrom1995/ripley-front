@@ -1,13 +1,13 @@
-<article class="product">
+<article class="product" (click)="goToDetail(product._id)">
     <img [src]="product.picture" [alt]="product.name" class="product-img">
     <div class="product-description">
         <h5 class="brand">{{ product.brand }}</h5>
         <span class="name">{{ product.name }}</span>
         <div class="prices">
-            <span class="prices-max prices-product">{{ product.maxPrice }}</span>
-            <span class="prices-medium prices-product">{{ product.mediumPrice }}</span>
+            <span class="prices-max prices-product">${{ product.maxPrice | money }}</span>
+            <span class="prices-medium prices-product">${{ product.mediumPrice | money }}</span>
             <span class="prices-low prices-product">
-                {{ product.minPrice }}
+                ${{ product.minPrice | money }}
                 <img class="card" src="assets/img/card.png" alt="Ripley card">
             </span>
         </div>

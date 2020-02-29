@@ -1,0 +1,64 @@
+<section class="product" *ngIf="product">
+    <img [src]="product.picture" [alt]="product.name" class="product-img">
+    <article class="product-detail">
+        <span class="brand">{{ product.brand }}</span>
+        <h2 class="name">{{ product.name }}</h2>
+        <span class="sku">sku: {{ product.sku }}</span>
+        <div class="calification">
+            <span class="calification-star icon-star-full"></span>
+            <span class="calification-star icon-star-full"></span>
+            <span class="calification-star icon-star-full"></span>
+            <span class="calification-star icon-star-full"></span>
+            <span class="calification-star icon-star-full"></span>
+            <span class="calification-register">(0 Calificaciones)</span>
+        </div>
+        <div class="prices">
+            <div class="prices-item prices-item--max">
+                <span class="label">Normal</span>
+                <span class="price">${{ product.maxPrice | money }}</span>
+            </div>
+            <div class="prices-item prices-item--medium">
+                <span class="label">Internet</span>
+                <span class="price">${{ product.mediumPrice | money }}</span>
+            </div>
+            <div class="prices-item prices-item--low">
+                <span class="label">Tarjeta Ripley</span>
+                <span class="price">
+                    <img src="assets/img/card.png" alt="Card" class="price-card">
+                    ${{ product.minPrice | money }}
+                </span>
+            </div>
+        </div>
+        <div class="discount">
+            <span class="discount-label">Descuento</span>
+            <span class="discount-value">-{{ product.percent }}%</span>
+        </div>
+        <div class="points">
+            <span class="points-label">Acumulas</span>
+            <span class="points-value">360 RipleyPuntos GO</span>
+        </div>
+        <div class="address">
+            <div class="address-select">
+                <span class="icon icon-map-pin"></span>
+                <span class="name">Comuna seleccionada: <b class="name-region">Santiago</b></span>
+            </div>
+            <div class="address-track">
+                <span class="icon icon-shopping-cart"></span>
+                <span class="name">Recibirás tu compra en 3 días</span>
+            </div>
+            <div class="address-delivery">
+                <span class="icon icon-shopping-bag"></span>
+                <span class="name">Retiro en tienda disponible</span>
+            </div>
+        </div>
+        <button class="add">Agregar al carrito</button>
+    </article>
+</section>
+<section class="sections">
+    <header class="sections-header">
+        <h2 class="title">Te Recomendamos!</h2>
+    </header>
+    <div class="sections-catalog">
+        <app-product-mini *ngFor="let product of products" [product]="product"></app-product-mini>
+    </div>
+</section>

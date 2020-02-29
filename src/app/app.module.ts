@@ -8,8 +8,11 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { ProductMiniComponent } from './product-mini/product-mini.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProductComponent } from './product/product.component';
 // Services
 import { ProductService } from './services';
+// Pipes
+import { MoneyFormatPipe } from './pipes/money-format';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { ProductService } from './services';
     HomeComponent,
     HeaderComponent,
     ProductMiniComponent,
-    FooterComponent
+    FooterComponent,
+    ProductComponent,
+    MoneyFormatPipe
   ],
   imports: [
     BrowserModule,

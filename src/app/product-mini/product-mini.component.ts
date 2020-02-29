@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../models';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-product-mini',
@@ -9,7 +10,11 @@ import { Product } from '../models';
 
 export class ProductMiniComponent implements OnInit {
     @Input() product: Product;
-    constructor() { }
-
+    constructor(
+        private route: Router
+    ) { }
     ngOnInit() { }
+    goToDetail(id) {
+        this.route.navigate(['product', id]);
+    }
 }
