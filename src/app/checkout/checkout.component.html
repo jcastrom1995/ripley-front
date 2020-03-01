@@ -113,6 +113,48 @@
             <header class="detail-header">
                 <h3 class="title">Detalle de la compra</h3>
             </header>
+            <div class="detail-products">
+                <div class="product" *ngFor="let product of products">
+                    <div class="product-detail">
+                        <img [src]="product.picture" [alt]="product.name" class="picture">
+                        <div class="info">
+                            <span class="info-name">{{ product.name }}</span>
+                            <span class="info-quantity">Cantidad: {{ product.quantity }}</span>
+                            <span class="info-sku">sku: {{ product.sku }}</span>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <div class="price">
+                            <span class="price-label">Precio unidad</span>
+                            <span class="price-value">${{ product.maxPrice | money }}</span>
+                        </div>
+                        <div class="price price--card">
+                            <span class="price-label">Tarjeta Ripley</span>
+                            <span class="price-value">${{ product.minPrice | money }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="detail-footer">
+                <h3 class="title">Resumen</h3>
+            </footer>
+            <div class="detail-summary">
+                <div class="subtotal">
+                    <span class="subtotal-label">Subtotal</span>
+                    <span class="subtotal-value">${{ subtotal | money }}</span>
+                </div>
+                <div class="total">
+                    <div class="total-value">
+                        <span class="label">Total normal</span>
+                        <span class="value">${{ subtotal | money }}</span>
+                    </div>
+                    <div class="total-value total-value--ripley">
+                        <span class="label">Total Tarjeta Ripley</span>
+                        <span class="value">${{ totalDiscount | money }}</span>
+                    </div>
+                </div>
+            </div>
+            <a class="detail-continue" [routerLink]="['/products']">Seguir comprando</a>
         </div>
     </div>
 </section>

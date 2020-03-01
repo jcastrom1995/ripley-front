@@ -1,5 +1,5 @@
 <app-header></app-header>
-<section class="product" *ngIf="product">
+<section class="product" *ngIf="!loading && product">
     <img [src]="product.picture" [alt]="product.name" class="product-img">
     <article class="product-detail">
         <span class="brand">{{ product.brand }}</span>
@@ -55,12 +55,15 @@
         <button class="add" (click)="addCart(product._id)">Agregar al carrito</button>
     </article>
 </section>
-<section class="sections" *ngIf="products">
+<section class="sections" *ngIf="!loading && products">
     <header class="sections-header">
         <h2 class="title">Te Recomendamos!</h2>
     </header>
     <div class="sections-catalog">
         <app-product-mini *ngFor="let product of products" [product]="product"></app-product-mini>
     </div>
+</section>
+<section class="loading" *ngIf="loading">
+    <app-loading [loading]="loading"></app-loading>
 </section>
 <app-footer></app-footer>

@@ -4,9 +4,9 @@ export class Product {
     picture: string;
     brand: string;
     name: string;
-    maxPrice: string;
-    mediumPrice: string;
-    minPrice: string;
+    maxPrice: number;
+    mediumPrice: number;
+    minPrice: number;
     isOffer: boolean;
     percent: number;
     quantity?: number;

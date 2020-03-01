@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CartService } from '../services';
 import { Product } from '../models';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class HeaderComponent implements OnInit {
         this.wasInside = false;
     }
     constructor(
-        private cartService: CartService
+        private cartService: CartService,
+        private route: Router
     ) {}
     ngOnInit() {
         this.checkCart();
@@ -72,5 +74,11 @@ export class HeaderComponent implements OnInit {
     }
     openCart() {
         this.cart = !this.cart;
+    }
+    goToCheckout() {
+        if (!this.cartProducts) {
+            return;
+        }
+        this.route.navigate(['checkout']);
     }
 }

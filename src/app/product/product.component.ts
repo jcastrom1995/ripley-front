@@ -9,13 +9,15 @@ import { Product } from '../models';
 })
 export class ProductComponent implements OnInit {
     public product: Product;
-    public products: Product[];
+    public products: Product[] = [];
+    public loading = false;
     constructor(
         private productService: ProductService,
         private route: ActivatedRoute,
         private cartService: CartService
     ) {}
     ngOnInit() {
+        this.loading = true;
         this.route.params.subscribe(params => {
             this.productService.get(params.id)
                 .subscribe(product => {
@@ -25,7 +27,15 @@ export class ProductComponent implements OnInit {
                 });
             this.productService.getAll()
                 .subscribe(products => {
-                    this.products = products;
+                    const prd = [];
+                    products.forEach(product => {
+                        if (prd.length >= 4) {
+                            return;
+                        }
+                        prd.push(product);
+                    });
+                    this.products = prd;
+                    this.loading = false;
                 }, err => {
                     console.log(err);
                 });

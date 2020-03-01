@@ -1,0 +1,40 @@
+<app-header></app-header>
+<section class="products" *ngIf="!loading && products">
+    <header class="products-header">
+        <nav class="breadcrambs">
+            <a [routerLink]="['/home']" class="breadcrambs-item">Inicio</a>
+            <span class="breadcrambs-item">></span>
+            <a class="breadcrambs-item" [routerLink]="['/products']" routerLinkActive="breadcrambs-item--active">Catálogo</a>
+        </nav>
+        <h2 class="title">Catálogo</h2>
+    </header>
+    <div class="products-body">
+        <header class="header">
+            <span class="header-results">Resultados totales {{ totalProducts }}</span>
+            <section class="header-select" (click)="openSelect()" [class.header-select--active]="openFilter">
+                <span class="icon"></span>
+                <div class="text" *ngIf="defaultItem">{{ defaultItem }}</div>
+                <div class="text" *ngIf="!defaultItem">Ordenar por</div>
+                <span class="arrow icon-chevron-down"></span>
+                <ul class="list">
+                    <li class="list-point" #filter1 (click)="selectOrder(filter1)">
+                        Mayor precio
+                    </li>
+                    <li class="list-point" #filter2 (click)="selectOrder(filter2)">
+                        Menor precio
+                    </li>
+                    <li class="list-point" #filter3 (click)="selectOrder(filter3)">
+                        Marca
+                    </li>
+                </ul>
+            </section>
+        </header>
+        <div class="products" >
+            <app-product-mini *ngFor="let product of products" [product]="product"></app-product-mini>
+        </div>
+    </div>
+</section>
+<div class="loading" *ngIf="loading">
+    <app-loading [loading]="loading"></app-loading>
+</div>
+<app-footer></app-footer>

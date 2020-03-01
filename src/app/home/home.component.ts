@@ -18,7 +18,14 @@ export class HomeComponent implements OnInit {
         }
         this.productService.getAll()
             .subscribe(products => {
-                this.products = products;
+                const prd = [];
+                products.forEach(product => {
+                    if (prd.length >= 4) {
+                        return;
+                    }
+                    prd.push(product);
+                });
+                this.products = prd;
             }, err => {
                 console.log(err);
             });

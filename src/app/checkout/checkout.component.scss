@@ -96,7 +96,169 @@
             &-header {
                 font-size: 1.1rem;
                 color: map-get($colors, text);
+                margin-bottom: 1.5rem;
+            }
+            &-footer {
+                font-size: 1.1rem;
+                color: map-get($colors, text);
+                margin-bottom: 1.5rem;
+            }
+            &-products {
+                margin-bottom: 2rem;
+                .product {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 1.2rem;
+                    height: 60px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &-detail {
+                        display: flex;
+                        .picture {
+                            width: 50px;
+                            display: block;
+                            margin-right: .625rem;
+                        }
+                        .info {
+                            &-name {
+                                display: block;
+                                font-size: .675rem;
+                                color: map-get($colors, text);
+                                font-weight: map-get($weight, medium);
+                                overflow:hidden;
+                                white-space:nowrap;
+                                text-overflow: ellipsis;
+                                width: 130px;
+                            }
+                            &-quantity {
+                                display: block;
+                                font-size: .625rem;
+                                text-transform: uppercase;
+                                color: map-get($colors, text);
+                                font-weight: map-get($weight, medium);
+                            }
+                            &-sku {
+                                display: block;
+                                text-transform: uppercase;
+                                font-size: .625rem;
+                                color: map-get($colors, text);
+                                font-weight: map-get($weight, medium);
+                            }
+                        }
+                    }
+                    &-price {
+                        .price {
+                            display: flex;
+                            align-items: center;
+                            font-size: .675rem;
+                            width: 145px;
+                            color: map-get($colors, text);
+                            margin-bottom: .2rem;
+                            &:last-child {
+                                margin: 0;
+                            }
+                            &.price--card {
+                                color: map-get($colors, red);
+                            }
+                            &-label {
+                                margin-right: .325rem;
+                                font-weight: map-get($weight, medium);
+                            }
+                            &-value {
+                                font-weight: map-get($weight, bold);
+                            }
+                        }
+                    }
+                }
+            }
+            &-summary {
+                margin-bottom: 1.5rem;
+                .subtotal {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-size: .875rem;
+                    color: map-get($colors, text);
+                    font-weight: map-get($weight, normal);
+                    border-bottom: 1px solid #ccc;
+                    padding-bottom: .75rem;
+                    margin-bottom: .875rem;
+                }
+                .total {
+                    &-value {
+                        margin-bottom: .225rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: .875rem;
+                        font-weight: map-get($weight, semi-bold);
+                        color: map-get($colors, text);
+                        &:last-child {
+                            margin: 0;
+                        }
+                        &.total-value--ripley {
+                            color: map-get($colors, red);
+                        }
+                    }
+                }
+            }
+            &-continue {
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                font-weight: map-get($weight, semi-bold);
+                color: map-get($colors, purple);
+                font-size: .875rem;
             }
         }
     }
 }
+
+@media screen and (max-width: 414px) { 
+    .checkout {
+        &-container {
+            display: block;
+            padding: .325rem;
+            .pay {
+                width: 100%;
+                margin-bottom: 2rem;
+                &-form {
+                    .container {
+                        .fields {
+                            &-input {
+                                width: 95%;
+                            }
+                        }
+                    }
+                }
+            }
+            .detail {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .checkout {
+        &-container {
+            .detail {
+                &-products {
+                    .product {
+                        &-price {
+                            .price {
+                                width: 100%;
+                                &-label {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+} 

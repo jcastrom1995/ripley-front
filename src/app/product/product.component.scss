@@ -4,9 +4,9 @@
     justify-content: space-between;
     max-width: $wrapper;
     margin: 1rem auto 0 auto;
+    align-items: center;
     &-img {
         display: block;
-        max-width: 100%;
         width: 571px;
     }
     &-detail {
@@ -243,11 +243,21 @@
     }
 }
 
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 950px;
+}
+
 @media screen and (max-width: 414px) { 
     .product {
         display: block;
         padding: 1rem;
         &-img {
+            width: 100%;
+        }
+        &-detail {
             width: 100%;
         }
     }
