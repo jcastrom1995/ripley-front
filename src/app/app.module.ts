@@ -13,6 +13,7 @@ import { ProductComponent } from './product/product.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductsComponent } from './products/products.component';
 import { LoadingComponent } from './loading/loading.component';
+import { SuccessComponent } from './success/success.component';
 // Services
 import { ProductService, CartService } from './services';
 // Pipes
@@ -29,7 +30,8 @@ import { MoneyFormatPipe } from './pipes/money-format';
     MoneyFormatPipe,
     CheckoutComponent,
     ProductsComponent,
-    LoadingComponent
+    LoadingComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,

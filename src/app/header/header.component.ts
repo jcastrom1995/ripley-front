@@ -25,6 +25,8 @@ export class HeaderComponent implements OnInit {
     clickout() {
         if (!this.wasInside) {
           this.cart = false;
+          this.openMenu = false;
+          this.openMenuRes = false;
         }
         this.wasInside = false;
     }

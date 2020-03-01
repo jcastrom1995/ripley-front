@@ -1,4 +1,4 @@
-<section class="checkout">
+<section class="checkout" *ngIf="!loading && products">
     <div class="checkout-container">
         <div class="pay">
             <header class="pay-header">
@@ -158,3 +158,6 @@
         </div>
     </div>
 </section>
+<div class="loading" *ngIf="loading">
+    <app-loading [loading]="loading"></app-loading>
+</div>

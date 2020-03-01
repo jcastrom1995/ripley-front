@@ -1,0 +1,12 @@
+@import 'variables';
+.success {
+    background: #f4f4f4;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-title {
+        font-size: 2.5rem;
+        color: map-get($colors, purple);
+    }
+}

@@ -13,12 +13,14 @@ export class CheckoutComponent implements OnInit {
     public products: Product[];
     public subtotal = 0;
     public totalDiscount = 0;
+    public loading = false;
     constructor(
         private fb: FormBuilder,
         private cartService: CartService,
         private route: Router
     ) {}
     ngOnInit() {
+        this.loading = true;
         this.pay = this.fb.group({
             name: ['', Validators.required],
             lastName: ['', Validators.required],
@@ -37,6 +39,7 @@ export class CheckoutComponent implements OnInit {
                     this.subtotal += product.maxPrice * product.quantity;
                     this.totalDiscount += product.minPrice * product.quantity;
                 });
+                this.loading = false;
             }, err => {
                 this.route.navigate(['home']);
             });
@@ -48,6 +51,9 @@ export class CheckoutComponent implements OnInit {
         if (this.pay.invalid) {
             return;
         }
+        setTimeout(() => {
+            this.route.navigate(['success']);
+        }, 2000);
     }
     countProducts() {
         const productsId = this.cartService.getProducts();
