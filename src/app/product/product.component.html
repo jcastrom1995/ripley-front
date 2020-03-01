@@ -52,7 +52,7 @@
                 <span class="name">Retiro en tienda disponible</span>
             </div>
         </div>
-        <button class="add">Agregar al carrito</button>
+        <button class="add" (click)="addCart(product._id)">Agregar al carrito</button>
     </article>
 </section>
 <section class="sections" *ngIf="products">

@@ -234,12 +234,14 @@
             }
             &-body {
                 height: 296px;
+                overflow-y: auto;
                 .products {
                     padding: .325rem;
                     &-item {
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
+                        margin-bottom: .75rem;
                         .details {
                             display: flex;
                             align-items: center;
@@ -346,6 +348,10 @@
                     &.btn--buy {
                         background: map-get($colors, red);
                         color: map-get($colors, white);
+                        &:disabled {
+                            opacity: .6;
+                            cursor: default;
+                        }
                     }
                 }
             }

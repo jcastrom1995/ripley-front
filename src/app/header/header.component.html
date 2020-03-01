@@ -37,7 +37,7 @@
         </button>
         <div class="cart">
             <button class="cart-btn icon-shopping-cart" (click)="openCart()"></button>
-            <span class="cart-count">0</span>
+            <span class="cart-count">{{ cartCount }}</span>
         </div>
         <button class="response_menu icon-menu" (click)="openMenuResponsive()"></button>
         <div class="shop_cart" [class.shop_cart--open]="cart">
@@ -46,21 +46,21 @@
                 <h3 class="title">Carrito de compra</h3>
             </header>
             <div class="shop_cart-body">
-                <div class="products">
-                    <div class="products-item">
+                <div class="products" *ngIf="cartProducts && cartProducts.length > 0">
+                    <div class="products-item" *ngFor="let product of cartProducts">
                         <div class="details">
                             <div class="details-count">
                                 <button class="arrow icon-chevron-up"></button>
-                                <span class="count">0</span>
+                                <span class="count">{{ product.quantity }}</span>
                                 <button class="arrow icon-chevron-down"></button>
                             </div>
-                            <img src="//home.ripley.cl/store/Attachment/WOP/D172/2000374695626/2000374695626_2.jpg" alt="product" class="details-img">
+                            <img [src]="product.picture" [alt]="product.name" class="details-img">
                             <div class="details-info">
-                                <span class="name">Nombre del producto</span>
+                                <span class="name">{{ product.name }}</span>
                                 <span class="label">Precio unidad</span>
-                                <span class="price">$49.990</span>
+                                <span class="price">${{ product.maxPrice | money }}</span>
                                 <span class="price price--offer">
-                                    $39.990
+                                    ${{ product.minPrice | money }}
                                     <img src="assets/img/card.png" alt="Card Ripley" class="card">
                                 </span>
                             </div>
@@ -68,13 +68,13 @@
                         <button class="delete icon-trash"></button>
                     </div>
                 </div>
-                <div class="empty">
+                <div class="empty" *ngIf="!cartProducts">
                     Sin productos
                 </div>
             </div>
             <footer class="shop_cart-footer">
                 <button class="btn btn--close" (click)="openCart()">Cerrar</button>
-                <button class="btn btn--buy">Comprar</button>
+                <button class="btn btn--buy" [disabled]="!cartProducts">Comprar</button>
             </footer>
         </div>
     </div>

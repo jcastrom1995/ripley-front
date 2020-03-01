@@ -12,6 +12,10 @@ export class HomeComponent implements OnInit {
         private productService: ProductService
     ) {}
     ngOnInit() {
+        const cart = localStorage.getItem('cart');
+        if (!cart) {
+            localStorage.setItem('cart', JSON.stringify([]));
+        }
         this.productService.getAll()
             .subscribe(products => {
                 this.products = products;

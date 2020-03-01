@@ -7,41 +7,105 @@
                 </svg>
                 <h2 class="title">Carro de compra</h2>
             </header>
-            <form class="pay-form">
+            <form class="pay-form" [formGroup]="pay" (ngSubmit)="payItems(pay.value, payBtn)">
                 <h3 class="title">Datos personales</h3>
                 <div class="container">
                     <div class="fields">
                         <label class="fields-label">Nombres</label>
-                        <input type="text" placeholder="Ingrese sus nombres" class="fields-input">
+                        <input 
+                            type="text" 
+                            placeholder="Ingrese sus nombres" 
+                            class="fields-input" 
+                            formControlName="name" 
+                            [class.fields-input--error]="pay.get('name').invalid && pay.get('name').touched"
+                        >
+                        <div *ngIf="pay.get('name').invalid && pay.get('name').touched">
+                            <div class="fields-error" *ngIf="pay.get('name').hasError('required')">Campo requerido</div>
+                        </div>
                     </div>
                     <div class="fields">
                         <label class="fields-label">Apellidos</label>
-                        <input type="text" placeholder="Ingrese sus apellidos" class="fields-input">
+                        <input 
+                            type="text" 
+                            placeholder="Ingrese sus apellidos" 
+                            class="fields-input" 
+                            formControlName="lastName" 
+                            [class.fields-input--error]="pay.get('lastName').invalid && pay.get('lastName').touched"
+                        >
+                        <div *ngIf="pay.get('lastName').invalid && pay.get('lastName').touched">
+                            <div class="fields-error" *ngIf="pay.get('lastName').hasError('required')">Campo requerido</div>
+                        </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="fields">
                         <label class="fields-label">Correo electronico</label>
-                        <input type="text" placeholder="Ingrese su correo electronico" class="fields-input">
+                        <input 
+                            type="text" 
+                            placeholder="Ingrese su correo electronico" 
+                            class="fields-input" 
+                            formControlName="email"
+                            [class.fields-input--error]="pay.get('email').invalid && pay.get('email').touched"
+                        >
+                        <div *ngIf="pay.get('email').invalid && pay.get('email').touched">
+                            <div class="fields-error" *ngIf="pay.get('email').hasError('required')">
+                                Campo requerido
+                            </div>
+                            <div class="fields-error" *ngIf="pay.get('email').hasError('email')">
+                                Correo electronico Incorrecto
+                            </div>
+                        </div>
                     </div>
                     <div class="fields">
                         <label class="fields-label">Rut</label>
-                        <input type="text" placeholder="Ingrese su rut" class="fields-input">
+                        <input 
+                            type="text" 
+                            placeholder="Ej: 11111111-1" 
+                            class="fields-input" 
+                            formControlName="rut"
+                            [class.fields-input--error]="pay.get('rut').invalid && pay.get('rut').touched"
+                        >
+                        <div *ngIf="pay.get('rut').invalid && pay.get('rut').touched">
+                            <div class="fields-error" *ngIf="pay.get('rut').hasError('required')">
+                                Campo requerido
+                            </div>
+                            <div class="fields-error" *ngIf="pay.get('rut').hasError('pattern')">
+                                Rut Incorrecto
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <h3 class="title">Datos de pago</h3>
                 <div class="container">
                     <div class="fields">
                         <label class="fields-label">Número de tarjeta</label>
-                        <input type="text" placeholder="Ingrese su número de tarjeta" class="fields-input">
+                        <input 
+                            type="text" 
+                            placeholder="Ingrese su número de tarjeta" 
+                            class="fields-input" 
+                            formControlName="cardNumber"
+                            [class.fields-input--error]="pay.get('cardNumber').invalid && pay.get('cardNumber').touched"
+                        >
+                        <div *ngIf="pay.get('cardNumber').invalid && pay.get('cardNumber').touched">
+                            <div class="fields-error" *ngIf="pay.get('cardNumber').hasError('required')">Campo requerido</div>
+                        </div>
                     </div>
                     <div class="fields">
                         <label class="fields-label">CVV</label>
-                        <input type="text" placeholder="Ingrese su cvv" class="fields-input">
+                        <input 
+                            type="text" 
+                            placeholder="Ingrese su cvv" 
+                            class="fields-input" 
+                            formControlName="cvv"
+                            [class.fields-input--error]="pay.get('cvv').invalid && pay.get('cvv').touched"
+                        >
+                        <div *ngIf="pay.get('cvv').invalid && pay.get('cvv').touched">
+                            <div class="fields-error" *ngIf="pay.get('cvv').hasError('required')">Campo requerido</div>
+                        </div>
                     </div>
                 </div>
                 <footer class="footer">
-                    <button class="footer-pay">Finalizar Compra</button>
+                    <button class="footer-pay" [disabled]="pay.invalid" #payBtn>Finalizar Compra</button>
                 </footer>
             </form>
         </div>

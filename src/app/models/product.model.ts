@@ -9,5 +9,6 @@ export class Product {
     minPrice: string;
     isOffer: boolean;
     percent: number;
+    quantity?: number;
     __v: number;
 }
