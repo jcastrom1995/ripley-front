@@ -42,7 +42,6 @@ export class ProductComponent implements OnInit {
             });
     }
     addCart(id) {
-        console.log(id);
         this.cartService.setProduct(id);
     }
 }

@@ -24,4 +24,20 @@ export class CartService {
     getCart(products) {
         return this.http.post<Product[]>(`${environment.urlApi}products/cart`, { products });
     }
+    removeProduct(id) {
+        const cart: string[] = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
+        const index = cart.indexOf(id);
+        if (index !== -1) {
+            cart.splice(index, 1);
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        this.change.next();
+    }
+    removeAllProducts(id) {
+        const cart: string[] = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
+        const newCart = cart.filter(idProduct => idProduct !== id);
+        localStorage.setItem('cart', JSON.stringify(newCart));
+        this.change.next();
+    }
+
 }

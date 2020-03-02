@@ -83,4 +83,13 @@ export class HeaderComponent implements OnInit {
         }
         this.route.navigate(['checkout']);
     }
+    sumProduct(id) {
+        this.cartService.setProduct(id);
+    }
+    restProduct(id) {
+        this.cartService.removeProduct(id);
+    }
+    deleteProduct(id){
+        this.cartService.removeAllProducts(id);
+    }
 }

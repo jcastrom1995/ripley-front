@@ -1,4 +1,3 @@
-<app-header></app-header>
 <section class="product" *ngIf="!loading && product">
     <img [src]="product.picture" [alt]="product.name" class="product-img">
     <article class="product-detail">
@@ -66,4 +65,3 @@
 <section class="loading" *ngIf="loading">
     <app-loading [loading]="loading"></app-loading>
 </section>
-<app-footer></app-footer>

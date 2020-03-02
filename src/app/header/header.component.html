@@ -64,9 +64,9 @@
                     <div class="products-item" *ngFor="let product of cartProducts">
                         <div class="details">
                             <div class="details-count">
-                                <button class="arrow icon-chevron-up"></button>
+                                <button class="arrow icon-chevron-up" (click)="sumProduct(product._id)"></button>
                                 <span class="count">{{ product.quantity }}</span>
-                                <button class="arrow icon-chevron-down"></button>
+                                <button class="arrow icon-chevron-down" (click)="restProduct(product._id)"></button>
                             </div>
                             <img [src]="product.picture" [alt]="product.name" class="details-img">
                             <div class="details-info">
@@ -79,7 +79,7 @@
                                 </span>
                             </div>
                         </div>
-                        <button class="delete icon-trash"></button>
+                        <button class="delete icon-trash" (click)="deleteProduct(product._id)"></button>
                     </div>
                 </div>
                 <div class="empty" *ngIf="!cartProducts || cartProducts.length <= 0">

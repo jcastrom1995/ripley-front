@@ -14,6 +14,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductsComponent } from './products/products.component';
 import { LoadingComponent } from './loading/loading.component';
 import { SuccessComponent } from './success/success.component';
+import { ContainerComponent } from './container/container.component';
 // Services
 import { ProductService, CartService } from './services';
 // Pipes
@@ -31,7 +32,8 @@ import { MoneyFormatPipe } from './pipes/money-format';
     CheckoutComponent,
     ProductsComponent,
     LoadingComponent,
-    SuccessComponent
+    SuccessComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,

@@ -105,6 +105,8 @@
             }
             &-products {
                 margin-bottom: 2rem;
+                max-height: 400px;
+                overflow-y: auto;
                 .product {
                     display: flex;
                     align-items: center;
